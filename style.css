@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0d47a1 0%, #b71c1c 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    border: 3px dashed #ff0000;
+}
+
+h1 {
+    color: #0d47a1;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 6px rgba(183, 28, 28, 0.4);
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    border: 2px solid #b71c1c;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #b71c1c;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d47a1;
+    min-width: 2rem;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #b71c1c;
+    font-weight: bold;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: #fff3e0;
+    border: 2px solid #0d47a1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    font-family: inherit;
+}
+
+.cell:hover {
+    background: #ffe0b2;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cell:focus {
+    outline: 2px solid #ff3d00;
+    outline-offset: 2px;
+}
+
+.cell.x {
+    color: #b71c1c;
+}
+
+.cell.o {
+    color: #0d47a1;
+}
+
+.cell.winning {
+    background: linear-gradient(45deg, #ffeb3b, #ffc107);
+    color: #000;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reset-btn, .reset-score-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border: none;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #b71c1c, #f44336);
+    color: white;
+    box-shadow: 0 5px 15px rgba(183, 28, 28, 0.4);
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(183, 28, 28, 0.5);
+}
+
+.reset-score-btn {
+    background: linear-gradient(45deg, #0d47a1, #1976d2);
+    color: white;
+    box-shadow: 0 5px 15px rgba(13, 71, 161, 0.4);
+}
+
+.reset-score-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(13, 71, 161, 0.5);
+}
+
+.reset-btn:active, .reset-score-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .score-board {
+        padding: 0.75rem;
+    }
+    
+    .player-label {
+        font-size: 0.9rem;
+    }
+    
+    .score {
+        font-size: 1.5rem;
+    }
+    
+    .cell {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .game-board {
+        max-width: 250px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .reset-btn, .reset-score-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
